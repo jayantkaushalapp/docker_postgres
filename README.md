@@ -1,19 +1,45 @@
-# installation steps
+## postgres-superset integratopm
+Clone this repo.
 
-Install the docker compose
-# docker-compose up -d redis postgres
-#docker-compose up -d superset
-#docker-compose exec superset superset-demo
+https://github.com/yantramcloud/harsh_docker_postgres.git
 
-login into postgres container and look at your postgres db
-# docker exec -it postgresql_postgres_1 bash
+Drop your db-dump in postgresql directory.
+Execute following:
 
-login in postgres command line, superset is the login username
-# psql -U superset
+	cd postgresql
 
-select database 
-# \c postgres 
-You are now connected to database "postgres" as user "superset".\n
+Cleanup any left overs .
+	
+	docker-compose down -v
+Bring up redis and postgres : 
+    
+    docker-compose up -d redis postgres
+Start Superset
+    
+	docker-compose up -d superset
+Initialize demo:
 
-show tables:
-# postgres=# \dt
+	docker-compose up -d superset
+Initialize demo without demo data:
+
+	docker-compose exec superset superset-init
+
+Login and verify: hit your local host to 8088 
+	
+	http://localhost:8088/ 
+
+this is very very temporary, docker is not executing startup scripts by some reason. need to debug. for now import your dump manually.
+
+	docker exec -it postgresql_postgres_1  psql -U superset -d superset -f /docker-entrypoint-initdb.d/sql_dump.sql
+
+
+Verify Postgresql dump
+	
+	docker exec -it postgresql_postgres_1 bash
+	psql -U superset
+	\c postgres
+	postgres=# \dt
+	
+	
+	
+you should see your exported tables here.
