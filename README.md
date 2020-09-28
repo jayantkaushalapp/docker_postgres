@@ -1,4 +1,4 @@
-## postgres-superset integratopm
+## postgres-superset
 Clone this repo.
 
 https://github.com/yantramcloud/harsh_docker_postgres.git
