@@ -9,9 +9,10 @@ docker-compose exec superset superset-demo
 
 #import the db dump exported during postgres run. use environment variables instead of superset.
 
-docker exec -it postgresql_postgres_1  psql -U superset -d superset -f /docker-entrypoint-initdb.d/sql_dump.sql
+#docker exec -it postgresql_postgres_1  psql -U superset -d superset -f /docker-entrypoint-initdb.d/sql_dump.sql
 
 #login into postgres console -- postgresql_postgres_1 is the name of your postgres container
+#$ postgresql_postgres_1
 #docker exec -it postgresql_postgres_1 bash
 
 #psql -U superset -d superset
