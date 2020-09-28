@@ -19,9 +19,6 @@ Start Superset
 	docker-compose up -d superset
 Initialize demo:
 
-	docker-compose up -d superset
-Initialize demo without demo data:
-
 	docker-compose exec superset superset-init
 
 Login and verify: hit your local host to 8088 
