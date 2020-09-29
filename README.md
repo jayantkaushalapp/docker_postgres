@@ -29,7 +29,7 @@ Login and verify with the username and password provided:
 
 this is very very temporary, docker is not executing startup scripts by some reason. need to debug. for now import your dump manually.
 
-	docker exec -it postgresql_postgres_1  psql -U superset -d superset -f /docker-entrypoint-initdb.d/sql_dump.sql
+	docker exec -it postgresql_postgres_1  psql -U superset -d superset -f /docker-entrypoint-initdb.d/1-sql_dump.sql
 
 
 Verify Postgresql dump
