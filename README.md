@@ -16,14 +16,14 @@ Cleanup any left overs .
 Bring up redis and postgres : 
     
     docker-compose up -d redis postgres
-Start Superset
+Bring up superset
     
 	docker-compose up -d superset
 Initialize demo:
 
-	docker-compose exec superset superset-init
+	docker-compose exec superset superset-demo
 
-Login and verify: hit your local host to 8088 
+Login and verify with the username and password provided: 
 	
 	http://localhost:8088/ 
 
