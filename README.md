@@ -10,6 +10,8 @@ Execute following:
 
 Cleanup any left overs .
 	
+	docker rm -f $(docker ps -a -q)
+	docker volume rm $(docker volume ls -q)
 	docker-compose down -v
 Bring up redis and postgres : 
     
