@@ -8,15 +8,15 @@ services:
   postgres:
     image: postgres
     restart: always
+    volumes:
+      - postgres:/var/lib/postgresql/data
+      - ./migrations/1-sql_dump.sql:/docker-entrypoint-initdb.d/1-sql_dump.sql
     environment:
       POSTGRES_DB: superset
       POSTGRES_PASSWORD: superset
       POSTGRES_USER: superset
     ports:
       - 5432:5432
-    volumes:
-      - postgres:/var/lib/postgresql/data
-      - ./migrations/1-sql_dump.sql:/docker-entrypoint-initdb.d/1-sql_dump.sql
   superset:
     image: amancevice/superset
     restart: always
